@@ -19,9 +19,30 @@ const todos = [
 ];
 
 const todoList = document.getElementById('todo-list');
+const addTodoForm = document.getElementById('add-todo-form');
 
-todoList.innerHTML = todos.map((todo) => `
+const renderTodos = () => {
+  todoList.innerHTML = todos.map((todo) => `
   <li class="todo-item">
   ${todo.description}
   </li>
-`).join('');
+  `).join('');
+};
+
+const addTodoEvent = (event) => {
+  event.preventDefault();
+  const newTodo = {
+    description: event.target[0].value,
+    completed: false,
+    id: todos.length,
+  };
+  todos.push(newTodo);
+  event.target[0].value = '';
+  renderTodos();
+};
+
+addTodoForm.addEventListener('submit', (e) => addTodoEvent(e));
+
+window.onload = () => {
+  renderTodos();
+};
