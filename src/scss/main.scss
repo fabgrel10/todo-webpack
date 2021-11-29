@@ -7,17 +7,30 @@
 /* Mixins, helpers and functions */
 @import "base/mixins";
 
-/* Vendor */
 
 /* Components */
-
-/* Use the variables */
 body {
   background-color: $body-background-color;
   color: $text-color;
-  font-size: $h1-font-size;
 }
 
-p {
-  font-size: $p-font-size;
+.outer-container {
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.middle-container {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.inner-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  /* Whatever width you want */
 }

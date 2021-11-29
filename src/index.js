@@ -1,8 +1,27 @@
 import './scss/main.scss';
 
-const app = document.getElementById('app');
-const p = document.createElement('p');
+const todos = [
+  {
+    description: 'Buy some apples',
+    completed: false,
+    id: 0,
+  },
+  {
+    description: 'Take the dog for a walk',
+    completed: false,
+    id: 1,
+  },
+  {
+    description: 'Study JavaScript',
+    completed: false,
+    id: 2,
+  },
+];
 
-app.innerHTML = '<h1>Webpack 5 Boilerplate</h1>';
-p.textContent = 'Hello World!';
-app.appendChild(p);
+const todoList = document.getElementById('todo-list');
+
+todoList.innerHTML = todos.map((todo) => `
+  <li class="todo-item">
+  ${todo.description}
+  </li>
+`).join('');
