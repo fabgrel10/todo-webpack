@@ -7,8 +7,8 @@
 // Other clearfix options: https://github.com/stubbornella/oocss/blob/master/oocss/src/components/utils/_clearfix-me.scss
 @mixin clearfix {
   &::after {
-    clear  : both;
-    content: '';
+    clear: both;
+    content: "";
     display: table;
   }
 }
@@ -32,14 +32,14 @@
 @mixin text-selection($color-selection, $color-selection-bg) {
   ::-moz-selection {
     // sass-lint:disable-line no-vendor-prefixes
-    background : $color-selection-bg;
-    color      : $color-selection;
+    background: $color-selection-bg;
+    color: $color-selection;
     text-shadow: none;
   }
 
   ::selection {
-    background : $color-selection-bg;
-    color      : $color-selection;
+    background: $color-selection-bg;
+    color: $color-selection;
     text-shadow: none;
   }
 }
