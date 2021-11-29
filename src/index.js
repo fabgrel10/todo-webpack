@@ -23,9 +23,11 @@ const addTodoForm = document.getElementById('add-todo-form');
 
 const renderTodos = () => {
   todoList.innerHTML = todos.map((todo) => `
-  <li class="todo-item">
-  ${todo.description}
-  </li>
+  <div class="todo-item-container">
+    <li class="todo-item">
+      ${todo.description}
+    </li>
+  </div>
   `).join('');
 };
 

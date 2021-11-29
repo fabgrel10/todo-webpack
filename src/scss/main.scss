@@ -7,30 +7,71 @@
 /* Mixins, helpers and functions */
 @import "base/mixins";
 
+/* Fonts */
+@import "base/fonts";
+
 
 /* Components */
 body {
   background-color: $body-background-color;
   color: $text-color;
+  font-family: 'Nanum Gothic', sans-serif;
+  height: 100%;
 }
 
 .outer-container {
-  display: table;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
   width: 100%;
-}
-
-.middle-container {
-  display: table-cell;
-  vertical-align: middle;
+  height: 100%;
+  display: table;
 }
 
 .inner-container {
-  margin-left: auto;
-  margin-right: auto;
+  text-align: left;
+  display: table-cell;
+  vertical-align: middle;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+}
+
+#todos-container {
+  background-color: $white;
+  margin: 25px auto;
   width: 500px;
-  /* Whatever width you want */
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+#todos-header {
+  display: flex;
+  border-bottom: 1px solid $accent-color;
+}
+
+#todos-h1-title {
+  font-size: 24px;
+  margin: 20px 5px;
+}
+
+#add-todo-form {
+  display: flex;
+  border-bottom: 1px solid $accent-color;
+
+}
+
+#add-todo-form input {
+  margin: 20px 5px;
+  border: none;
+  font-size: 16px;
+  font-style: italic;
+  width: 100%;
+}
+
+.todo-item-container {
+  display: flex;
+  border-bottom: 1px solid $accent-color;
+}
+
+.todo-item {
+  margin: 20px 5px;
+  font-size: 16px;
 }

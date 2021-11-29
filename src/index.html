@@ -8,9 +8,11 @@
   </head>
   <body>
     <div class="outer-container">
-      <div class="middle-container">
-        <div class="inner-container">
-          <h1>Today's To Do</h1>
+      <div class="inner-container">
+        <div id="todos-container">
+          <header id="todos-header">
+            <h1 id="todos-h1-title">Today's To Do</h1>
+          </header>
           <form id="add-todo-form">
             <input
               type="text"
@@ -19,7 +21,7 @@
               placeholder="Add to your list..."
             />
           </form>
-          <div id="todos-container">
+          <div>
             <ul id="todo-list"></ul>
           </div>
         </div>
