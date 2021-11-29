@@ -1,5 +1,4 @@
 import './scss/main.scss';
-import './scss/normalize.css';
 
 const app = document.getElementById('app');
 const p = document.createElement('p');
