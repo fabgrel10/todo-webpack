@@ -75,3 +75,18 @@ body {
   margin: 20px 5px;
   font-size: 16px;
 }
+
+#clear-button-div {
+  display: flex;
+  border-bottom: 1px solid $accent-color;
+  background-color: $body-background-color;
+}
+
+#clear-button {
+  border: none;
+  margin: 20px 5px;
+  font-size: 20px;
+  text-align: center;
+  font-family: inherit;
+  width: 100%;
+}
