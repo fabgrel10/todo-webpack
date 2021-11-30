@@ -45,6 +45,7 @@ body {
 #todos-header {
   display: flex;
   border-bottom: 1px solid $accent-color;
+  justify-content: space-between;
 }
 
 #todos-h1-title {
@@ -55,7 +56,7 @@ body {
 #add-todo-form {
   display: flex;
   border-bottom: 1px solid $accent-color;
-
+  justify-content: space-between;
 }
 
 #add-todo-form input {
@@ -95,4 +96,11 @@ body {
   background-color: $accent-color;
   color: $white;
   cursor: pointer;
+}
+
+.far,
+.fas {
+  align-self: flex-end;
+  margin: 20px 5px;
+  color: $accent-color;
 }

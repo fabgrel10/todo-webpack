@@ -2,19 +2,14 @@ import './scss/main.scss';
 
 const todos = [
   {
-    description: 'Buy some apples',
+    description: 'Wash the dishes',
     completed: false,
     id: 0,
   },
   {
-    description: 'Take the dog for a walk',
+    description: 'Complete To Do list project',
     completed: false,
     id: 1,
-  },
-  {
-    description: 'Study JavaScript',
-    completed: false,
-    id: 2,
   },
 ];
 
@@ -25,6 +20,7 @@ const clearButton = document.getElementById('clear-button');
 const renderTodos = () => {
   todoList.innerHTML = todos.map((todo) => `
   <div class="todo-item-container">
+    <i class="far fa-square"></i>
     <li class="todo-item">
       ${todo.description}
     </li>
