@@ -4,9 +4,39 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/7f21877d11.js"
+      crossorigin="anonymous"
+    ></script>
     <title>To-Do App</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div class="outer-container">
+      <div class="inner-container">
+        <div id="todos-container">
+          <header id="todos-header">
+            <h1 id="todos-h1-title">Today's To Do</h1>
+            <i class="fas fa-sync"></i>
+          </header>
+          <form id="add-todo-form">
+            <input
+              type="text"
+              name="add-todo-input"
+              id="add-todo-input"
+              placeholder="Add to your list..."
+            />
+            <button class="button">
+              <i class="fas fa-long-arrow-alt-left"></i>
+            </button>
+          </form>
+          <div>
+            <ul id="todo-list"></ul>
+          </div>
+          <div id="clear-button-div">
+            <button id="clear-button">Clear All Completed</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
