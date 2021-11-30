@@ -14,8 +14,10 @@ const todos = [
 ];
 
 const todoList = document.getElementById('todo-list');
-const addTodoForm = document.getElementById('add-todo-form');
+const addTodoInput = document.getElementById('add-todo-form');
 const clearButton = document.getElementById('clear-button');
+const clearIcon = document.querySelector('.fa-sync');
+const addTodoIcon = document.querySelector('.fa-long-arrow-alt-left');
 
 const renderTodos = () => {
   todoList.innerHTML = todos.map((todo) => `
@@ -40,12 +42,16 @@ const addTodoEvent = (event) => {
   renderTodos();
 };
 
-addTodoForm.addEventListener('submit', (e) => addTodoEvent(e));
-
-clearButton.addEventListener('click', () => {
+const clearAllCompleted = () => {
   todos.splice(0, todos.length);
   renderTodos();
-});
+};
+
+addTodoInput.addEventListener('submit', (e) => addTodoEvent(e));
+addTodoIcon.addEventListener('submit', (e) => addTodoEvent(e));
+
+clearButton.addEventListener('click', clearAllCompleted);
+clearIcon.addEventListener('click', clearAllCompleted);
 
 window.onload = () => {
   renderTodos();

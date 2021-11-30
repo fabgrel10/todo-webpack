@@ -10,12 +10,10 @@
 /* Fonts */
 @import "base/fonts";
 
-
-/* Components */
 body {
   background-color: $body-background-color;
   color: $text-color;
-  font-family: 'Nanum Gothic', sans-serif;
+  font-family: "Nanum Gothic", sans-serif;
   height: 100%;
 }
 
@@ -30,8 +28,10 @@ body {
   display: table-cell;
   vertical-align: middle;
   justify-content: center;
+
   /* align horizontal */
   align-items: center;
+
   /* align vertical */
 }
 
@@ -39,7 +39,7 @@ body {
   background-color: $white;
   margin: 25px auto;
   width: 500px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgb(100 100 111 / 20%) 0 7px 29px 0;
 }
 
 #todos-header {
@@ -65,6 +65,12 @@ body {
   font-size: 16px;
   font-style: italic;
   width: 100%;
+}
+
+.button {
+  background-color: $white;
+  border: none;
+  cursor: pointer;
 }
 
 .todo-item-container {
@@ -103,4 +109,5 @@ body {
   align-self: flex-end;
   margin: 20px 5px;
   color: $accent-color;
+  cursor: pointer;
 }
