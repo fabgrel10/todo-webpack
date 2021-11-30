@@ -84,9 +84,15 @@ body {
 
 #clear-button {
   border: none;
-  margin: 20px 5px;
   font-size: 20px;
   text-align: center;
   font-family: inherit;
+  height: 50px;
   width: 100%;
+}
+
+#clear-button:hover {
+  background-color: $accent-color;
+  color: $white;
+  cursor: pointer;
 }

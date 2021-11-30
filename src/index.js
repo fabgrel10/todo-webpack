@@ -20,6 +20,7 @@ const todos = [
 
 const todoList = document.getElementById('todo-list');
 const addTodoForm = document.getElementById('add-todo-form');
+const clearButton = document.getElementById('clear-button');
 
 const renderTodos = () => {
   todoList.innerHTML = todos.map((todo) => `
@@ -44,6 +45,11 @@ const addTodoEvent = (event) => {
 };
 
 addTodoForm.addEventListener('submit', (e) => addTodoEvent(e));
+
+clearButton.addEventListener('click', () => {
+  todos.splice(0, todos.length);
+  renderTodos();
+});
 
 window.onload = () => {
   renderTodos();
