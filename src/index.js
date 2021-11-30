@@ -1,16 +1,18 @@
+import { nanoid } from 'nanoid';
+import setCompleted from './helpers/statusUpdates';
 import './scss/main.scss';
 
 const todos = [
-  {
-    description: 'Wash the dishes',
-    completed: false,
-    id: 0,
-  },
-  {
-    description: 'Complete To Do list project',
-    completed: false,
-    id: 1,
-  },
+  // {
+  //   description: 'Wash the dishes',
+  //   completed: false,
+  //   id: 0,
+  // },
+  // {
+  //   description: 'Complete To Do list project',
+  //   completed: false,
+  //   id: 1,
+  // },
 ];
 
 const todoList = document.getElementById('todo-list');
@@ -21,13 +23,21 @@ const addTodoIcon = document.querySelector('.fa-long-arrow-alt-left');
 
 const renderTodos = () => {
   todoList.innerHTML = todos.map((todo) => `
-  <div class="todo-item-container">
-    <i class="far fa-square"></i>
+  <div class="todo-container" id=${todo.id}>
+    <i class="far fa-square" data-id=${todo.id}></i>
     <li class="todo-item">
       ${todo.description}
     </li>
   </div>
   `).join('');
+
+  const todoIcons = document.querySelectorAll('.fa-square');
+
+  todoIcons.forEach((todoIcon) => {
+    todoIcon.addEventListener('click', (e) => {
+      setCompleted(e, todos);
+    });
+  });
 };
 
 const addTodoEvent = (event) => {
@@ -35,7 +45,7 @@ const addTodoEvent = (event) => {
   const newTodo = {
     description: event.target[0].value,
     completed: false,
-    id: todos.length,
+    id: nanoid(5),
   };
   todos.push(newTodo);
   event.target[0].value = '';

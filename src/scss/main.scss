@@ -73,7 +73,7 @@ body {
   cursor: pointer;
 }
 
-.todo-item-container {
+.todo-container {
   display: flex;
   border-bottom: 1px solid $accent-color;
 }
@@ -110,4 +110,8 @@ body {
   margin: 20px 5px;
   color: $accent-color;
   cursor: pointer;
+}
+
+.completed-todo {
+  text-decoration: line-through;
 }
