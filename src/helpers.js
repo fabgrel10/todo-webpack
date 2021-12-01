@@ -11,6 +11,7 @@ const setCompleted = (e, todos) => {
     e.target.classList.add('fa-square');
     e.target.nextElementSibling.classList.remove('completed-todo');
   }
+  localStorage.setItem('todos', JSON.stringify(todos));
 };
 
 export default setCompleted;
