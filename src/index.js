@@ -67,8 +67,9 @@ const addTodoEvent = (event) => {
 };
 
 const clearAllCompleted = () => {
-  window.localStorage.clear();
-  todoList.innerHTML = '';
+  todosStorage = JSON.parse(localStorage.getItem('todos')) || [];
+  const render = todosStorage.filter((todo) => !todo.completed);
+  localStorage.setItem('todos', JSON.stringify(render));
   renderTodos();
 };
 
