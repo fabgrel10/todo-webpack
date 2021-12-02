@@ -1,58 +1,61 @@
+import { nanoid } from 'nanoid';
+import { mapTasks, setCompleted } from './helpers';
 import './scss/main.scss';
 
-const todos = [
-  {
-    description: 'Wash the dishes',
-    completed: false,
-    id: 0,
-  },
-  {
-    description: 'Complete To Do list project',
-    completed: false,
-    id: 1,
-  },
-];
+let taskArray = [];
+if (!localStorage.getItem('tasks')) {
+  localStorage.setItem('tasks', JSON.stringify(taskArray));
+}
 
-const todoList = document.getElementById('todo-list');
-const addTodoInput = document.getElementById('add-todo-form');
-const clearButton = document.getElementById('clear-button');
-const clearIcon = document.querySelector('.fa-sync');
-const addTodoIcon = document.querySelector('.fa-long-arrow-alt-left');
+const tasksContainer = document.getElementById('render-tasks');
+const addTask = document.getElementById('add-task-form');
+const clearButton = document.getElementById('clear-completed');
+const clearCompletedIcon = document.querySelector('.fa-sync');
+const addTaskIcon = document.querySelector('.fa-long-arrow-alt-left');
+let taskIcons = [];
 
-const renderTodos = () => {
-  todoList.innerHTML = todos.map((todo) => `
-  <div class="todo-item-container">
-    <i class="far fa-square"></i>
-    <li class="todo-item">
-      ${todo.description}
-    </li>
-  </div>
-  `).join('');
+const renderTasks = () => {
+  const tasks = JSON.parse(localStorage.getItem('tasks'));
+
+  tasksContainer.innerHTML = mapTasks(tasks);
+
+  const completeFalse = document.querySelectorAll('.fa-square');
+  const completeTrue = document.querySelectorAll('.fa-check-square');
+
+  taskIcons = [...completeFalse, ...completeTrue];
+
+  taskIcons.forEach((icon) => {
+    icon.addEventListener('click', (e) => {
+      setCompleted(e, tasks);
+    });
+  });
 };
 
-const addTodoEvent = (event) => {
+const handleNewTask = (event) => {
+  taskArray = JSON.parse(localStorage.getItem('tasks')) || [];
   event.preventDefault();
-  const newTodo = {
+  const task = {
     description: event.target[0].value,
     completed: false,
-    id: todos.length,
+    id: nanoid(5),
   };
-  todos.push(newTodo);
+  taskArray.push(task);
+  localStorage.setItem('tasks', JSON.stringify(taskArray));
   event.target[0].value = '';
-  renderTodos();
+  renderTasks();
 };
 
 const clearAllCompleted = () => {
-  todos.splice(0, todos.length);
-  renderTodos();
+  taskArray = JSON.parse(localStorage.getItem('tasks')) || [];
+  const render = taskArray.filter((task) => !task.completed);
+  localStorage.setItem('tasks', JSON.stringify(render));
+  renderTasks();
 };
 
-addTodoInput.addEventListener('submit', (e) => addTodoEvent(e));
-addTodoIcon.addEventListener('submit', (e) => addTodoEvent(e));
+addTask.addEventListener('submit', (e) => handleNewTask(e));
+addTaskIcon.addEventListener('submit', (e) => handleNewTask(e));
 
 clearButton.addEventListener('click', clearAllCompleted);
-clearIcon.addEventListener('click', clearAllCompleted);
+clearCompletedIcon.addEventListener('click', clearAllCompleted);
 
-window.onload = () => {
-  renderTodos();
-};
+window.onload = renderTasks();
