@@ -1,7 +1,7 @@
 {
   "name": "todo-webpack",
   "version": "1.0.0",
-  "description": " App to list the things that you need to do. Built using ES6 and Webpack.",
+  "description": "App to list the things that you need to do. Built using ES6 and Webpack.",
   "main": "index.js",
   "scripts": {
     "build": "webpack --config configuration/webpack.dev.config.js --mode=development",

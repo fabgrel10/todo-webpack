@@ -1,17 +1,17 @@
-# Webpack 5 Boilerplate Template
+# To Do List
 
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![Babel](https://img.shields.io/badge/Babel-F9DC3e?style=for-the-badge&logo=babel&logoColor=black)
 ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
 ![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black)
 
-> A simple yet powerful webpack boilerplate, which you can later use as a starting point in your projects.
+> A simple App to list the things that you need to do. Built using ES6 and Webpack.
 
 ![screenshot](./app_screenshot.png)
 
 ## Live Demo
 
-[Live Demo Link](#/)
+[Live Demo Link](http://todo-webpack.surge.sh/)
 
 ## Table of Contents
 
