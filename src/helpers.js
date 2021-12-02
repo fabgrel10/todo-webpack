@@ -1,3 +1,26 @@
+const mapTasks = (tasks) => tasks.map((task) => {
+  if (task.completed) {
+    return `
+      <div class="task-container" id=${task.id}>
+
+        <i class="far fa-check-square" data-id=${task.id}></i>
+        <li class="task-item task-completed">
+          ${task.description}
+        </li>
+      </div>
+      `;
+  }
+  return `
+    <div class="task-container" id=${task.id}>
+
+    <i class="far fa-square" data-id=${task.id}></i>
+    <li class="task-item">
+      ${task.description}
+    </li>
+  </div>
+  `;
+}).join('');
+
 const setCompleted = (e, tasks) => {
   const { id } = e.target.dataset;
   const task = tasks.find((task) => task.id === id);
@@ -14,4 +37,4 @@ const setCompleted = (e, tasks) => {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 };
 
-export default setCompleted;
+export { mapTasks, setCompleted };

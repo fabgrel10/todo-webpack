@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid';
-import setCompleted from './helpers';
+import { mapTasks, setCompleted } from './helpers';
 import './scss/main.scss';
 
 let taskArray = [];
@@ -17,28 +17,7 @@ let taskIcons = [];
 const renderTasks = () => {
   const tasks = JSON.parse(localStorage.getItem('tasks'));
 
-  tasksContainer.innerHTML = tasks.map((task) => {
-    if (task.completed) {
-      return `
-      <div class="task-container" id=${task.id}>
-
-        <i class="far fa-check-square" data-id=${task.id}></i>
-        <li class="task-item task-completed">
-          ${task.description}
-        </li>
-      </div>
-      `;
-    }
-    return `
-    <div class="task-container" id=${task.id}>
-
-    <i class="far fa-square" data-id=${task.id}></i>
-    <li class="task-item">
-      ${task.description}
-    </li>
-  </div>
-  `;
-  }).join('');
+  tasksContainer.innerHTML = mapTasks(tasks);
 
   const completeFalse = document.querySelectorAll('.fa-square');
   const completeTrue = document.querySelectorAll('.fa-check-square');
