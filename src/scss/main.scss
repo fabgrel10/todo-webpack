@@ -67,19 +67,16 @@ body {
   width: 100%;
 }
 
-.button {
-  background-color: $white;
-  border: none;
-  cursor: pointer;
-}
-
 .task-container {
   display: flex;
+  position: relative;
+  align-items: center;
   border-bottom: 1px solid $accent-color;
+  width: 100%;
 }
 
 .task-item {
-  margin: 20px 5px;
+  margin: 0px 5px;
   font-size: 16px;
 }
 
@@ -104,14 +101,69 @@ body {
   cursor: pointer;
 }
 
-.far,
-.fas {
-  align-self: flex-end;
+.task-completed {
+  text-decoration: line-through;
+}
+
+/* Font Awesome */
+
+.button,
+.fa-square,
+.fa-check-square {
   margin: 20px 5px;
   color: $accent-color;
   cursor: pointer;
 }
 
-.task-completed {
-  text-decoration: line-through;
+#remove-all-button {
+  background-color: $white;
+  border: none;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+#remove-all-button:hover {
+  background-color: #f94144;
+  color: $white;
+}
+
+#add-task-button {
+  background-color: $white;
+  border: none;
+  cursor: pointer;
+  margin-right: 6px;
+}
+
+#add-task-icon {
+  color: $accent-color;
+  padding: 7px;
+}
+
+#add-task-button:hover {
+  background-color: #74c69d;
+}
+
+#add-task-icon:hover {
+  color: $white;
+}
+
+#delete-icon-button {
+  position: absolute;
+  margin-right: 12px;
+  right: 0;
+  background-color: $white;
+  border: none;
+  cursor: pointer;
+}
+
+.task-container #delete-task-icon {
+  color: $accent-color;
+}
+
+#delete-icon-button:hover {
+  color: $white;
+}
+
+#delete-task-icon:hover {
+  color: #f94144;
 }

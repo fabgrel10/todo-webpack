@@ -16,12 +16,17 @@
         <div id="app-container">
           <header id="header">
             <h1 id="title">Today's To Do</h1>
-            <i class="fas fa-sync"></i>
+            <button class="button" id="remove-all-button">
+              <i class="fas fa-sync"></i>
+            </button>
           </header>
           <form id="add-task-form">
             <input type="text" placeholder="Add to your list..." />
-            <button class="button button-completed">
-              <i class="fas fa-long-arrow-alt-left"></i>
+            <button class="button" id="add-task-button">
+              <i
+                class="fas fa-level-down-alt fa-lg fa-rotate-90"
+                id="add-task-icon"
+              ></i>
             </button>
           </form>
           <div>

@@ -11,7 +11,7 @@ const tasksContainer = document.getElementById('render-tasks');
 const addTask = document.getElementById('add-task-form');
 const clearButton = document.getElementById('clear-completed');
 const clearCompletedIcon = document.querySelector('.fa-sync');
-const addTaskIcon = document.querySelector('.fa-long-arrow-alt-left');
+const addTaskIcon = document.querySelector('.fa-level-down-alt');
 let taskIcons = [];
 
 const renderTasks = () => {
