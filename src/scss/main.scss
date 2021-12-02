@@ -35,31 +35,31 @@ body {
   /* align vertical */
 }
 
-#todos-container {
+#app-container {
   background-color: $white;
   margin: 25px auto;
   width: 500px;
   box-shadow: rgb(100 100 111 / 20%) 0 7px 29px 0;
 }
 
-#todos-header {
+#header {
   display: flex;
   border-bottom: 1px solid $accent-color;
   justify-content: space-between;
 }
 
-#todos-h1-title {
+#title {
   font-size: 24px;
   margin: 20px 5px;
 }
 
-#add-todo-form {
+#add-task-form {
   display: flex;
   border-bottom: 1px solid $accent-color;
   justify-content: space-between;
 }
 
-#add-todo-form input {
+#add-task-form input {
   margin: 20px 5px;
   border: none;
   font-size: 16px;
@@ -73,23 +73,23 @@ body {
   cursor: pointer;
 }
 
-.todo-container {
+.task-container {
   display: flex;
   border-bottom: 1px solid $accent-color;
 }
 
-.todo-item {
+.task-item {
   margin: 20px 5px;
   font-size: 16px;
 }
 
-#clear-button-div {
+#button-div {
   display: flex;
   border-bottom: 1px solid $accent-color;
   background-color: $body-background-color;
 }
 
-#clear-button {
+#clear-completed {
   border: none;
   font-size: 20px;
   text-align: center;
@@ -98,7 +98,7 @@ body {
   width: 100%;
 }
 
-#clear-button:hover {
+#clear-completed:hover {
   background-color: $accent-color;
   color: $white;
   cursor: pointer;
@@ -112,6 +112,6 @@ body {
   cursor: pointer;
 }
 
-.completed-todo {
+.task-completed {
   text-decoration: line-through;
 }

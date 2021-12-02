@@ -2,81 +2,81 @@ import { nanoid } from 'nanoid';
 import setCompleted from './helpers';
 import './scss/main.scss';
 
-let todosStorage = [];
-if (!localStorage.getItem('todos')) {
-  localStorage.setItem('todos', JSON.stringify(todosStorage));
+let taskArray = [];
+if (!localStorage.getItem('tasks')) {
+  localStorage.setItem('tasks', JSON.stringify(taskArray));
 }
 
-const todoList = document.getElementById('todo-list');
-const addTodoInput = document.getElementById('add-todo-form');
-const clearButton = document.getElementById('clear-button');
-const clearIcon = document.querySelector('.fa-sync');
-const addTodoIcon = document.querySelector('.fa-long-arrow-alt-left');
-let todoIcons = [];
+const tasksContainer = document.getElementById('render-tasks');
+const addTask = document.getElementById('add-task-form');
+const clearButton = document.getElementById('clear-completed');
+const clearCompletedIcon = document.querySelector('.fa-sync');
+const addTaskIcon = document.querySelector('.fa-long-arrow-alt-left');
+let taskIcons = [];
 
-const renderTodos = () => {
-  const todos = JSON.parse(localStorage.getItem('todos'));
+const renderTasks = () => {
+  const tasks = JSON.parse(localStorage.getItem('tasks'));
 
-  todoList.innerHTML = todos.map((todo) => {
-    if (todo.completed) {
+  tasksContainer.innerHTML = tasks.map((task) => {
+    if (task.completed) {
       return `
-      <div class="todo-container" id=${todo.id}>
+      <div class="task-container" id=${task.id}>
 
-        <i class="far fa-check-square" data-id=${todo.id}></i>
-        <li class="todo-item completed-todo">
-          ${todo.description}
+        <i class="far fa-check-square" data-id=${task.id}></i>
+        <li class="task-item task-completed">
+          ${task.description}
         </li>
       </div>
       `;
     }
     return `
-    <div class="todo-container" id=${todo.id}>
+    <div class="task-container" id=${task.id}>
 
-    <i class="far fa-square" data-id=${todo.id}></i>
-    <li class="todo-item">
-      ${todo.description}
+    <i class="far fa-square" data-id=${task.id}></i>
+    <li class="task-item">
+      ${task.description}
     </li>
   </div>
   `;
   }).join('');
 
-  const faSquareIcons = document.querySelectorAll('.fa-square');
-  const faCheckSquareIcons = document.querySelectorAll('.fa-check-square');
+  const completeFalse = document.querySelectorAll('.fa-square');
+  const completeTrue = document.querySelectorAll('.fa-check-square');
 
-  todoIcons = [...faSquareIcons, ...faCheckSquareIcons];
+  taskIcons = [...completeFalse, ...completeTrue];
 
-  todoIcons.forEach((todoIcon) => {
-    todoIcon.addEventListener('click', (e) => {
-      setCompleted(e, todos);
+  taskIcons.forEach((icon) => {
+    icon.addEventListener('click', (e) => {
+      setCompleted(e, tasks);
     });
   });
 };
 
-const addTodoEvent = (event) => {
-  todosStorage = JSON.parse(localStorage.getItem('todos')) || [];
+const handleNewTask = (event) => {
+  taskArray = JSON.parse(localStorage.getItem('tasks')) || [];
   event.preventDefault();
-  const newTodo = {
+  const task = {
     description: event.target[0].value,
     completed: false,
     id: nanoid(5),
   };
-  todosStorage.push(newTodo);
-  localStorage.setItem('todos', JSON.stringify(todosStorage));
+  taskArray.push(task);
+  localStorage.setItem('tasks', JSON.stringify(taskArray));
   event.target[0].value = '';
-  renderTodos();
+  renderTasks();
 };
 
 const clearAllCompleted = () => {
-  todosStorage = JSON.parse(localStorage.getItem('todos')) || [];
-  const render = todosStorage.filter((todo) => !todo.completed);
-  localStorage.setItem('todos', JSON.stringify(render));
-  renderTodos();
+  taskArray = JSON.parse(localStorage.getItem('tasks')) || [];
+  const render = taskArray.filter((task) => !task.completed);
+  localStorage.setItem('tasks', JSON.stringify(render));
+  renderTasks();
 };
 
-addTodoInput.addEventListener('submit', (e) => addTodoEvent(e));
-addTodoIcon.addEventListener('submit', (e) => addTodoEvent(e));
+addTask.addEventListener('submit', (e) => handleNewTask(e));
+addTaskIcon.addEventListener('submit', (e) => handleNewTask(e));
 
 clearButton.addEventListener('click', clearAllCompleted);
-clearIcon.addEventListener('click', clearAllCompleted);
+clearCompletedIcon.addEventListener('click', clearAllCompleted);
 
-window.onload = renderTodos();
+window.onload = renderTasks();
