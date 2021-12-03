@@ -10,8 +10,8 @@ if (!localStorage.getItem('tasks')) {
 
 const tasksContainer = document.getElementById('render-tasks');
 const addTask = document.getElementById('add-task-form');
-const clearButton = document.getElementById('clear-completed');
-const clearCompletedIcon = document.querySelector('.fa-sync');
+const clearAllIcon = document.querySelector('.fa-sync');
+const clearCompletedButton = document.getElementById('clear-completed');
 const addTaskIcon = document.querySelector('.fa-level-down-alt');
 let taskIcons = [];
 
@@ -60,17 +60,23 @@ const handleNewTask = (event) => {
   renderTasks();
 };
 
-const clearAllCompleted = () => {
+const clearCompleted = () => {
   taskArray = JSON.parse(localStorage.getItem('tasks')) || [];
   const render = taskArray.filter((task) => !task.completed);
   localStorage.setItem('tasks', JSON.stringify(render));
   renderTasks();
 };
 
+const clearAll = () => {
+  taskArray = [];
+  localStorage.setItem('tasks', JSON.stringify(taskArray));
+  renderTasks();
+};
+
 addTask.addEventListener('submit', (e) => handleNewTask(e));
 addTaskIcon.addEventListener('submit', (e) => handleNewTask(e));
 
-clearButton.addEventListener('click', clearAllCompleted);
-clearCompletedIcon.addEventListener('click', clearAllCompleted);
+clearAllIcon.addEventListener('click', clearAll);
+clearCompletedButton.addEventListener('click', clearCompleted);
 
 window.onload = renderTasks();
