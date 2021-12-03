@@ -4,9 +4,11 @@ const mapTasks = (tasks) => tasks.map((task) => {
       <div class="task-container" id=${task.id}>
         <i class="far fa-check-square" data-id=${task.id}></i>
         <li class="task-item task-completed">
-          ${task.description}
+          <input type="text" class="task-description" value="${task.description}">
         </li>
-        <i class="fas fa-trash-alt" id="delete-task-icon" data-id=${task.id}></i>
+        <button id="delete-icon-button">
+          <i class="fas fa-trash-alt" id="delete-task-icon" data-id=${task.id}></i>
+        </button>
       </div>
       `;
   }
@@ -14,10 +16,10 @@ const mapTasks = (tasks) => tasks.map((task) => {
     <div class="task-container" id=${task.id}>
       <i class="far fa-square" data-id=${task.id}></i>
       <li class="task-item">
-        ${task.description}
+        <input type="text" class="task-description" value="${task.description}">
       </li>
       <button id="delete-icon-button">
-        <i class="fas fa-trash-alt" id="delete-task-icon"></i>
+        <i class="fas fa-trash-alt" id="delete-task-icon" data-id=${task.id}></i>
       </button>
     </div>
   `;

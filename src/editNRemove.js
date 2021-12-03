@@ -1,4 +1,8 @@
-const editTask = () => {
+const editTask = (e, tasks) => {
+  const taskId = e.target.parentNode.parentNode.id;
+  const taskIndex = tasks.findIndex((task) => task.id === taskId);
+  tasks[taskIndex].description = e.target.value;
+  localStorage.setItem('tasks', JSON.stringify(tasks));
 };
 
 const removeTask = (e, tasks) => {

@@ -23,6 +23,7 @@ const renderTasks = () => {
   const completeFalse = document.querySelectorAll('.fa-square');
   const completeTrue = document.querySelectorAll('.fa-check-square');
   const removeTaskIcons = document.querySelectorAll('.fa-trash-alt');
+  const taskDescriptions = document.querySelectorAll('.task-description');
 
   taskIcons = [...completeFalse, ...completeTrue];
 
@@ -35,6 +36,12 @@ const renderTasks = () => {
   removeTaskIcons.forEach((icon) => {
     icon.addEventListener('click', (e) => {
       removeTask(e, tasks);
+    });
+  });
+
+  taskDescriptions.forEach((description) => {
+    description.addEventListener('change', (e) => {
+      editTask(e, tasks);
     });
   });
 };
