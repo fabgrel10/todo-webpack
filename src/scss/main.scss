@@ -53,6 +53,16 @@ body {
   margin: 20px 5px;
 }
 
+.task-completed input {
+  text-decoration: line-through;
+}
+
+.task-item input {
+  font-size: 16px;
+  border: none;
+  width: 450px;
+}
+
 #add-task-form {
   display: flex;
   border-bottom: 1px solid $accent-color;
@@ -76,14 +86,8 @@ body {
 }
 
 .task-item {
-  margin: 0px 5px;
+  margin: 0 5px;
   font-size: 16px;
-}
-
-.task-item input {
-  font-size: 16px;
-  border: none;
-  width: 100%;
 }
 
 #button-div {
@@ -105,10 +109,6 @@ body {
   background-color: $accent-color;
   color: $white;
   cursor: pointer;
-}
-
-.task-completed input {
-  text-decoration: line-through;
 }
 
 /* Font Awesome */
