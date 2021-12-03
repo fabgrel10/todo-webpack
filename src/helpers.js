@@ -17,7 +17,7 @@ const mapTasks = (tasks) => tasks.map((task) => {
         ${task.description}
       </li>
       <button id="delete-icon-button">
-        <i class="fas fa-trash-alt" id="delete-task-icon" data-id=${task.id}></i>
+        <i class="fas fa-trash-alt" id="delete-task-icon"></i>
       </button>
     </div>
   `;

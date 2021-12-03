@@ -1,5 +1,6 @@
 import { nanoid } from 'nanoid';
 import { mapTasks, setCompleted } from './helpers';
+import { editTask, removeTask } from './editNRemove';
 import './scss/main.scss';
 
 let taskArray = [];
@@ -21,12 +22,19 @@ const renderTasks = () => {
 
   const completeFalse = document.querySelectorAll('.fa-square');
   const completeTrue = document.querySelectorAll('.fa-check-square');
+  const removeTaskIcons = document.querySelectorAll('.fa-trash-alt');
 
   taskIcons = [...completeFalse, ...completeTrue];
 
   taskIcons.forEach((icon) => {
     icon.addEventListener('click', (e) => {
       setCompleted(e, tasks);
+    });
+  });
+
+  removeTaskIcons.forEach((icon) => {
+    icon.addEventListener('click', (e) => {
+      removeTask(e, tasks);
     });
   });
 };
