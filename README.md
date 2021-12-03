@@ -7,7 +7,7 @@
 
 > A simple App to list the things that you need to do. Built using ES6 and Webpack.
 
-![screenshot](./app_screenshot.png)
+![screenshot](./app_screenshot.gif)
 
 ## Live Demo
 
