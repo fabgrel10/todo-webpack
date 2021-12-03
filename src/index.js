@@ -54,6 +54,9 @@ const handleNewTask = (event) => {
     completed: false,
     id: nanoid(5),
   };
+  if (task.description === '') {
+    return;
+  }
   taskArray.push(task);
   localStorage.setItem('tasks', JSON.stringify(taskArray));
   event.target[0].value = '';
