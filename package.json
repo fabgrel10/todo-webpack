@@ -8,7 +8,8 @@
     "watch": "webpack --config configuration/webpack.dev.config.js --mode=development --watch",
     "bundle": "npm install && npm run watch",
     "dev": "webpack serve --config configuration/webpack.dev.config.js --mode=development",
-    "production": "webpack --config configuration/webpack.prod.config.js --mode=production"
+    "production": "webpack --config configuration/webpack.prod.config.js --mode=production",
+    "test": "jest"
   },
   "keywords": [
     "webpack",
@@ -31,6 +32,7 @@
     "eslint-plugin-import": "^2.25.3",
     "html-webpack-plugin": "^5.5.0",
     "image-minimizer-webpack-plugin": "^2.2.0",
+    "jest": "^27.4.3",
     "mini-css-extract-plugin": "^2.4.5",
     "prettier": "^2.5.0",
     "sass": "^1.43.5",
