@@ -1,5 +1,5 @@
-import { mapTasks, setCompleted } from '../helpers/helpers';
-import { addTask, editTask, removeTask } from '../modules/crud';
+import { mapTasks, setCompleted } from './helpers/helpers';
+import { addTask, editTask, removeTask } from './modules/crud';
 import './scss/main.scss';
 
 let allTasksArray = [];
