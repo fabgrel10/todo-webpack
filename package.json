@@ -9,7 +9,7 @@
     "bundle": "npm install && npm run watch",
     "dev": "webpack serve --config configuration/webpack.dev.config.js --mode=development",
     "production": "webpack --config configuration/webpack.prod.config.js --mode=production",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "keywords": [
     "webpack",

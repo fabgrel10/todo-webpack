@@ -1,15 +1,15 @@
-import { nanoid } from 'nanoid';
-import { mapTasks, setCompleted } from './helpers';
-import { editTask, removeTask } from './editNRemove';
+import { mapTasks, setCompleted } from '../helpers/helpers';
+import { addTask, editTask, removeTask } from '../modules/crud';
 import './scss/main.scss';
 
-let taskArray = [];
+let allTasksArray = [];
+
 if (!localStorage.getItem('tasks')) {
-  localStorage.setItem('tasks', JSON.stringify(taskArray));
+  localStorage.setItem('tasks', JSON.stringify(allTasksArray));
 }
 
 const tasksContainer = document.getElementById('render-tasks');
-const addTask = document.getElementById('add-task-form');
+const addNewTask = document.getElementById('add-task-form');
 const clearAllIcon = document.querySelector('.fa-sync');
 const clearCompletedButton = document.getElementById('clear-completed');
 const addTaskIcon = document.querySelector('.fa-level-down-alt');
@@ -47,36 +47,25 @@ const renderTasks = () => {
 };
 
 const handleNewTask = (event) => {
-  taskArray = JSON.parse(localStorage.getItem('tasks')) || [];
-  event.preventDefault();
-  const task = {
-    description: event.target[0].value,
-    completed: false,
-    id: nanoid(5),
-  };
-  if (task.description === '') {
-    return;
-  }
-  taskArray.push(task);
-  localStorage.setItem('tasks', JSON.stringify(taskArray));
-  event.target[0].value = '';
+  allTasksArray = JSON.parse(localStorage.getItem('tasks')) || [];
+  addTask(event, allTasksArray);
   renderTasks();
 };
 
 const clearCompleted = () => {
-  taskArray = JSON.parse(localStorage.getItem('tasks')) || [];
-  const render = taskArray.filter((task) => !task.completed);
+  allTasksArray = JSON.parse(localStorage.getItem('tasks')) || [];
+  const render = allTasksArray.filter((task) => !task.completed);
   localStorage.setItem('tasks', JSON.stringify(render));
   renderTasks();
 };
 
 const clearAll = () => {
-  taskArray = [];
-  localStorage.setItem('tasks', JSON.stringify(taskArray));
+  allTasksArray = [];
+  localStorage.setItem('tasks', JSON.stringify(allTasksArray));
   renderTasks();
 };
 
-addTask.addEventListener('submit', (e) => handleNewTask(e));
+addNewTask.addEventListener('submit', (e) => handleNewTask(e));
 addTaskIcon.addEventListener('submit', (e) => handleNewTask(e));
 
 clearAllIcon.addEventListener('click', clearAll);
