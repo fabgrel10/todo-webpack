@@ -21,7 +21,7 @@ describe('Test localStorage is called upon crud operations', () => {
 
 describe('Test for empty input & delete right matching item', () => {
   it('should return undefined & stop execution', () => {
-    expect(crud.addTask('')).toBe('Error! empty string');
+    expect(crud.addTask('')).toBe(false);
   });
 
   it('should delete item by picking correct id & index', () => {
