@@ -14,7 +14,7 @@ const tasks = [
     description: 'Task 3',
     completed: false,
     id: 3,
-  }
+  },
 ];
 
 const addTask = (description) => {
@@ -29,10 +29,16 @@ const addTask = (description) => {
   tasks.push(task);
 };
 
-const editTask = (e, tasks) => {
+/*const editTask = (e, tasks) => {
   const taskId = e.id;
   const taskIndex = tasks.findIndex((task) => task.id === taskId);
   tasks[taskIndex].description = e;
+};*/
+
+const editTask = (e, tasks) => {
+  const taskId = e.id;
+  const taskIndex = tasks.findIndex((task) => task.id === taskId);
+  tasks[taskIndex].description = e.target.value;
 };
 
 const removeTask = (taskId) => {
