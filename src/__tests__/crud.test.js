@@ -3,6 +3,7 @@
  */
 
 import * as crud from '../modules/crud';
+import mapTasks from '../helpers/__mocks__/helpers';
 
 jest.mock('../modules/crud');
 
