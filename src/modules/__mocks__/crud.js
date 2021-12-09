@@ -1,5 +1,21 @@
 /* eslint-disable consistent-return */
-const tasks = [];
+const tasks = [
+  {
+    description: 'Task 1',
+    completed: false,
+    id: 1,
+  },
+  {
+    description: 'Task 2',
+    completed: false,
+    id: 2,
+  },
+  {
+    description: 'Task 3',
+    completed: false,
+    id: 3,
+  }
+];
 
 const addTask = (description) => {
   const task = {
@@ -13,11 +29,18 @@ const addTask = (description) => {
   tasks.push(task);
 };
 
-const removeTask = (taskId) => {
+const editTask = (e, tasks) => {
+  const taskId = e.id;
   const taskIndex = tasks.findIndex((task) => task.id === taskId);
+  tasks[taskIndex].description = e;
+};
+
+const removeTask = (taskId) => {
+  const taskIndex = tasks.findIndex((t) => t.id === taskId);
+  console.log(taskIndex);
   tasks.splice(taskIndex, 1);
 };
 
-const returnAllList = () => tasks;
+const localStorage = () => tasks;
 
-export { addTask, removeTask, returnAllList };
+export { addTask, editTask, removeTask, localStorage };
