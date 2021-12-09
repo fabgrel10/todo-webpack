@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 const tasks = [];
 
 const addTask = (description) => {
