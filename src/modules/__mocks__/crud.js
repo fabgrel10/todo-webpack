@@ -7,7 +7,7 @@ const addTask = (description) => {
     id: tasks.length,
   };
   if (task.description === '') {
-    return;
+    return 'Error! empty string';
   }
   tasks.push(task);
 };
