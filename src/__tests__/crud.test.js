@@ -3,17 +3,17 @@
  */
 
 import * as crud from '../modules/crud';
-import { localStorageMock } from '../modules/__mocks__/crud';
 
 jest.mock('../modules/crud');
 
-describe('Add and remove a task', () => {
-  localStorageMock.getAll();
-  const newTask = { description: 'new task', completed: false, id: 1 };
+describe('Test localStorage is called upon crud operations', () => {
+  it('should call when addTask', () => {
+    crud.addTask('test');
+    expect(crud.returnAllList()).toHaveLength(1);
+  });
 
-  test('Add a new task', () => {
-    crud.addTask('new task', []);
-    localStorageMock.getAll();
-    expect(localStorageMock.getItem('tasks')).toBe(([newTask]));
+  it('should call when removeTask', () => {
+    crud.removeTask(0);
+    expect(crud.returnAllList()).toHaveLength(0);
   });
 });
