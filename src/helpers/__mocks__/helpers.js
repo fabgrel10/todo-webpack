@@ -44,17 +44,16 @@ const mapTasks = (t) => t.map((task) => {
   `;
 }).join('');
 
-const setCompleted = (e) => {
+const setCompleted = (id, tasks) => {
   // const { id } = e.id;
-  // const task = tasks.find((task) => task.id === id);
-  if (e.completed) {
-    return 'task-completed';
-  }
+  const task = tasks.find((task) => task.id === id);
+  task.completed = !task.completed;
+  return task.completed;
 };
 
-const clearAllCompleted = () => {
-  const completedTasks = tasks.filter((task) => task.completed);
-  return completedTasks;
+const clearAllCompleted = (tasks) => {
+  tasks = tasks.filter((task) => !task.completed);
+  return tasks;
 };
 
 const localStorage = () => tasks;

@@ -29,7 +29,17 @@ const renderTasks = () => {
 
   taskIcons.forEach((icon) => {
     icon.addEventListener('click', (e) => {
-      setCompleted(e, tasks);
+      const { id } = e.target.dataset;
+      const completed = setCompleted(id, tasks);
+      if (completed) {
+        e.target.classList.remove('fa-square');
+        e.target.classList.add('fa-check-square');
+        e.target.nextElementSibling.classList.add('task-completed');
+      } else {
+        e.target.classList.remove('fa-check-square');
+        e.target.classList.add('fa-square');
+        e.target.nextElementSibling.classList.remove('task-completed');
+      }
     });
   });
 
