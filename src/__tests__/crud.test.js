@@ -48,7 +48,7 @@ describe('Injects DOM elements upon task creation', () => {
         description: 'New task',
         completed: false,
         id: 4,
-      }
+      },
     ];
 
     const createDOM = mapTasks(newTask);
@@ -58,21 +58,21 @@ describe('Injects DOM elements upon task creation', () => {
 
 describe('Test for editing the task description', () => {
   it('should edit the task description value', () => {
-    let event = {
+    const event = {
       target: { value: 'Value edited.' },
       id: 1,
     };
-    let tasks = [{ description: 'No edit value.', completed: false, id: 1 }];
+    const tasks = [{ description: 'No edit value.', completed: false, id: 1 }];
     crud.editTask(event, tasks);
     expect(tasks[0].description).toBe(event.target.value);
   });
 
   it('should fail to edit if object is not found', () => {
-    let event = {
+    const event = {
       target: { value: 'Value edited.' },
       id: 1,
     };
-    let tasks = [{ description: 'No edit value.', completed: false, id: 1 }];
+    const tasks = [{ description: 'No edit value.', completed: false, id: 1 }];
     crud.editTask(event, tasks);
     expect(tasks[1]).toBeUndefined();
   });

@@ -37,10 +37,11 @@ const editTask = (e, tasks) => {
 
 const removeTask = (taskId) => {
   const taskIndex = tasks.findIndex((t) => t.id === taskId);
-  console.log(taskIndex);
   tasks.splice(taskIndex, 1);
 };
 
 const localStorage = () => tasks;
 
-export { addTask, editTask, removeTask, localStorage };
+export {
+  addTask, editTask, removeTask, localStorage,
+};

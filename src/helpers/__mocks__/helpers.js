@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 const tasks = [
   {
     description: 'Task 1',
@@ -44,21 +45,20 @@ const mapTasks = (t) => t.map((task) => {
 }).join('');
 
 const setCompleted = (e) => {
-  const { id } = e.id;
-  const task = tasks.find((task) => task.id === id);
+  // const { id } = e.id;
+  // const task = tasks.find((task) => task.id === id);
   if (e.completed) {
     return 'task-completed';
-  } else {
-    return;
   }
 };
 
 const clearAllCompleted = () => {
   const completedTasks = tasks.filter((task) => task.completed);
-  return completedTasks
+  return completedTasks;
 };
-
 
 const localStorage = () => tasks;
 
-export { mapTasks, setCompleted, localStorage, clearAllCompleted };
+export {
+  mapTasks, setCompleted, localStorage, clearAllCompleted,
+};

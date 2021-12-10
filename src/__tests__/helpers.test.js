@@ -2,15 +2,15 @@
  * @jest-environment jsdom
  */
 
-jest.mock('../helpers/helpers.js')
+import {
+  clearAllCompleted,
+  setCompleted,
+} from '../helpers/__mocks__/helpers';
 
- import { localStorage, setCompleted, clearAllCompleted } from '../helpers/__mocks__/helpers';
+jest.mock('../helpers/helpers.js');
 
 describe('Updates a task completed status and removes completed tasks', () => {
   test('should update a task completed status', () => {
-
-    const tasks = localStorage();
-
     const task = {
       description: 'Task 1',
       completed: true,
@@ -22,5 +22,5 @@ describe('Updates a task completed status and removes completed tasks', () => {
 
   test('should remove all task completed', () => {
     expect(clearAllCompleted()).toHaveLength(0);
-  })
-})
+  });
+});
