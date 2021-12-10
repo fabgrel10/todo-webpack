@@ -2,14 +2,14 @@
  * Helper mixins
 */
 
- /* stylelint-disable */
+/* stylelint-disable */
 
 // Clearfix
 
 @mixin clearfix {
   &::after {
     clear: both;
-    content: "";
+    content: '';
     display: table;
   }
 }
@@ -20,9 +20,7 @@
     @media (min-width: 1280px) {
       @content;
     }
-  }
-
-  @else if $point == small {
+  } @else if $point == small {
     @media (max-width: 1279px) {
       @content;
     }
