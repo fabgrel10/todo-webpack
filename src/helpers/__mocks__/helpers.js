@@ -1,4 +1,23 @@
-const mapTasks = (tasks) => tasks.map((task) => {
+/* eslint-disable consistent-return */
+const tasks = [
+  {
+    description: 'Task 1',
+    completed: false,
+    id: 1,
+  },
+  {
+    description: 'Task 2',
+    completed: false,
+    id: 2,
+  },
+  {
+    description: 'Task 3',
+    completed: false,
+    id: 3,
+  },
+];
+
+const mapTasks = (t) => t.map((task) => {
   if (task.completed) {
     return `
       <div class="task-container" id=${task.id}>
@@ -25,20 +44,20 @@ const mapTasks = (tasks) => tasks.map((task) => {
   `;
 }).join('');
 
-const setCompleted = (e, tasks) => {
-  const { id } = e.target.dataset;
+const setCompleted = (id, tasks) => {
+  // const { id } = e.id;
   const task = tasks.find((task) => task.id === id);
   task.completed = !task.completed;
-  if (task.completed) {
-    e.target.classList.remove('fa-square');
-    e.target.classList.add('fa-check-square');
-    e.target.nextElementSibling.classList.add('task-completed');
-  } else {
-    e.target.classList.remove('fa-check-square');
-    e.target.classList.add('fa-square');
-    e.target.nextElementSibling.classList.remove('task-completed');
-  }
-  localStorage.setItem('tasks', JSON.stringify(tasks));
+  return task.completed;
 };
 
-export { mapTasks, setCompleted };
+const clearAllCompleted = (tasks) => {
+  tasks = tasks.filter((task) => !task.completed);
+  return tasks;
+};
+
+const localStorage = () => tasks;
+
+export {
+  mapTasks, setCompleted, localStorage, clearAllCompleted,
+};
