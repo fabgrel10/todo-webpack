@@ -3,7 +3,7 @@
  */
 
 import * as crud from '../modules/crud';
-import mapTasks from '../helpers/__mocks__/helpers';
+import { mapTasks } from '../helpers/__mocks__/helpers';
 
 jest.mock('../modules/crud');
 
@@ -43,16 +43,16 @@ describe('Empty input returns false', () => {
 
 describe('Injects DOM elements upon task creation', () => {
   it('should create a div for a new task', () => {
-    const tasks = [
+    const newTask = [
       {
         description: 'New task',
         completed: false,
         id: 4,
-      },
+      }
     ];
 
-    const createDOM = mapTasks(tasks);
-    expect(createDOM).toHaveLength(337);
+    const createDOM = mapTasks(newTask);
+    expect(createDOM).toContain('div');
   });
 });
 

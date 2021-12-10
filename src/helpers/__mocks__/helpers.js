@@ -1,4 +1,22 @@
-const mapTasks = (tasks) => tasks.map((task) => {
+const tasks = [
+  {
+    description: 'Task 1',
+    completed: false,
+    id: 1,
+  },
+  {
+    description: 'Task 2',
+    completed: false,
+    id: 2,
+  },
+  {
+    description: 'Task 3',
+    completed: false,
+    id: 3,
+  },
+];
+
+const mapTasks = (t) => t.map((task) => {
   if (task.completed) {
     return `
       <div class="task-container" id=${task.id}>
@@ -25,4 +43,22 @@ const mapTasks = (tasks) => tasks.map((task) => {
   `;
 }).join('');
 
-export default mapTasks;
+const setCompleted = (e) => {
+  const { id } = e.id;
+  const task = tasks.find((task) => task.id === id);
+  if (e.completed) {
+    return 'task-completed';
+  } else {
+    return;
+  }
+};
+
+const clearAllCompleted = () => {
+  const completedTasks = tasks.filter((task) => task.completed);
+  return completedTasks
+};
+
+
+const localStorage = () => tasks;
+
+export { mapTasks, setCompleted, localStorage, clearAllCompleted };
