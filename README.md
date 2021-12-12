@@ -148,10 +148,6 @@ npm run stats
 
 Give a ⭐️ if you like this project!
 
-## Acknowledgments
-
-- This template is a simplified version of the [frontend-webpack-template](https://github.com/WeAreAthlon/frontend-webpack-boilerplate) by [Athlon](https://github.com/WeAreAthlon).
-
 ## License
 
 This project is [MIT](./MIT.md) licensed.
