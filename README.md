@@ -4,6 +4,7 @@
 ![Babel](https://img.shields.io/badge/Babel-F9DC3e?style=for-the-badge&logo=babel&logoColor=black)
 ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
 ![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black)
+![Jest](https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white)
 
 > A simple App to list the things that you need to do. Built using ES6 and Webpack.
 
@@ -42,6 +43,7 @@
 - [Webpack 5](https://github.com/webpack/webpack) - _JavaScript_ module bundler.
 - [SASS](https://github.com/sass/sass) compiler based on Dart `sass`.
 - [Babel 7](https://github.com/babel/babel) (`@babel/core`) - JavaScript compiler - _Use next generation JavaScript, today._
+- [Jest](https://jestjs.io/) - A delightful JavaScript Testing Framework
 
 ## Getting Started
 
