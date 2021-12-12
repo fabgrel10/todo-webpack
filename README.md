@@ -32,6 +32,7 @@
   - [JavaScript](#javascript)
 - [Additional Tools](#additional-tools)
   - [Run Assets Bundle Analyzer](#run-assets-bundle-analyzer)
+- [Author](#author)
 - [Show Your Support](#how-your-support)
 - [Acknowledgments](#acknowledgments)
 - [License](#license)
@@ -134,6 +135,14 @@ npm run stats
 ```
 
 > This will open the visualization on the default configuration URL `localhost:8888`, you can change this URL or port following the [package](https://github.com/webpack-contrib/webpack-bundle-analyzer#options-for-cli) documentation.
+
+## Author
+
+👤 **Fabricio Garcia**
+
+- GitHub: [@fabgrel10](https://github.com/fabgrel10)
+- LinkedIn: [fabgrel10](https://www.linkedin.com/in/fabgrel10/)
+- Twitter: [@fabgrel10](https://twitter.com/fabgrel10)
 
 ## Show your support
 
